@@ -1,1 +1,18 @@
-ъеъ
+for (n = 0; n < a; n++)
+	{
+		printf("A[%d]=", n + 1);
+		scanf_s("%d", &b);
+		A[n] = b;
+	}
+	for (n = 1; n < a; n++)
+	{
+		if (fabs(A[n]) < fabs(A[c]))
+			c = n;
+
+	}
+	s = 0;
+	for (n = c + 1; n < a; n++)
+		s += A[n];
+
+	printf("%d", s);
+}
