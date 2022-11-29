@@ -4,43 +4,60 @@
 #include<stdlib.h>
 #define N 10
 
+double y(double x)
+{
+    double y = pow(x, 3) + 3 * pow(x, 2) - 3;
+    return y;
+}
+
 void main()
 {
     setlocale(LC_ALL, "RUS");
-    float A[N], temp, a, b = 0;
-    for (int i = 0; i < 10; i++)
-    {
-        printf("a[%d] = ", i + 1);
-        scanf_s("%f", &temp);
-        A[i] = temp;
-    }
-    puts("-----------------------------------------------");
-    puts("| индекс | исходное значeние | новое значение");
-    puts("-----------------------------------------------");
-    for (int i = 0; i < 10; i++)
-    {
-        a = pow(A[i], 2);
-        printf("\n |a[%3d]|%17.0f|%17.0f|\n", i + 1, A[i], a);
-        b += A[i];
-        puts("-------------------------------------------");
-    }
-    printf("среднее арифметическое элементов массива %.3f\n", b / N);
-    system("pause");
-    system("cls");
+    //float A[N], temp, a, b = 0;
+    //for (int i = 0; i < 10; i++)
+    //{
+    //    printf("a[%d] = ", i + 1);
+    //    scanf_s("%f", &temp);
+    //    A[i] = temp;
+    //}
+    //puts("-----------------------------------------------");
+    //puts("| индекс | исходное значeние | новое значение");
+    //puts("-----------------------------------------------");
+    //for (int i = 0; i < 10; i++)
+    //{
+    //    a = pow(A[i], 2);
+    //    printf("\n |a[%3d]|%17.0f|%17.0f|\n", i + 1, A[i], a);
+    //    b += A[i];
+    //    puts("-------------------------------------------");
+    //}
+    //printf("среднее арифметическое элементов массива %.3f\n", b / N);
+    //system("pause");
+    //system("cls");
 
     puts("Задание 2");
     //срзнач всех +
     //сумма +,кол-во, сумма -, кол-во, ср.знач.
-    double B[100], x, xmin = 2, xmax = 4, sump = 0;
+    double B[100], x, xmin = 2, xmax = 4, sump = 0, sumo = 0, sr;
+    int p = 0, o = 0;
     for (int c = 0; c < 100; c++)
     {
-     x = xmin + 1.f * (xmax - xmin) * rand() / RAND_MAX;
-     y = pow(x, 3) + 3 * pow(x, 2) - 3;
-     
+        x = xmin + 1.f * (xmax - xmin) * rand() / RAND_MAX;
+        B[c] = y(x);
+        printf("b[%d]=%lf\n", c + 1, B[c]);
+        if (y(x) > 0)
+        {
+            p++;
+            sump += y(x);
+        }
+        else
+            if (y(x) < 0)
+            {
+                o++;
+                sumo += y(x);
+            }
+
     }
-
-
-
-
+    sr = sump / p;
+    printf("Имя массива: В; сумма положительных элементов - %lf, отрицательных - %lf; число положительных элементов - %d , отрицательных - %d; среднее всех всех положительных элеменов- %lf", sump, sumo, p, o, sr);
 
 }
