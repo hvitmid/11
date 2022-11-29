@@ -1,18 +1,30 @@
-for (n = 0; n < a; n++)
+#include<stdio.h>
+#include<locale.h>
+#include<math.h>
+void main()
+{
+	double sr = 0;
+	int A[10], a, b, n = 0;
+
+	setlocale(LC_ALL, "RUS");
+	printf("Введите количество элементов в массиве:\n");
+	scanf_s("%d", &a);
+	//Наименьшее среднее двух соседних элементов массива.
+	for (n = 0; n < a; n++)
 	{
 		printf("A[%d]=", n + 1);
 		scanf_s("%d", &b);
 		A[n] = b;
 	}
-	for (n = 1; n < a; n++)
+	for (n = 1, sr = 0; n < a; n++)
 	{
-		if (fabs(A[n]) < fabs(A[c]))
-			c = n;
+		printf("%.5lf", ((A[n] + A[n + 1]) / 2));
+		if (((A[n] + A[n + 1]) / 2) < sr)
+		sr = ((A[n] + A[n + 1]) / 2);
 
 	}
-	s = 0;
-	for (n = c + 1; n < a; n++)
-		s += A[n];
 
-	printf("%d", s);
+	printf("%d", sr);
 }
+
+
